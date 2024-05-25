@@ -64,7 +64,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-
+                      Text('صفحة إدخال بيانات الحلقات',style: TextStyle(fontSize: 20)),
                     SizedBox(
                       height: 10,
                     ),
