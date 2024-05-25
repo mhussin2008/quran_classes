@@ -64,34 +64,56 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+
                     SizedBox(
                       height: 10,
                     ),
-                    Text('اسم الحلقة'),
+                    Row(
+                      children: [
+
+                        Expanded(
+                          child: TextFormField(
+                              style: const TextStyle(height: 0.5),
+                              keyboardType: TextInputType.text,
+                              textDirection: TextDirection.rtl,
+                              controller: nameController,
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder())),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+
+
+
+                        Text('اسم الحلقة'),
+                      ],
+                    ),
+
+
                     SizedBox(
                       height: 10,
                     ),
-                    TextFormField(
-                        style: const TextStyle(height: 0.5),
-                        keyboardType: TextInputType.text,
-                        textDirection: TextDirection.rtl,
-                        controller: nameController,
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder())),
-                    SizedBox(
-                      height: 10,
+
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                              style: const TextStyle(height: 0.5),
+                              keyboardType: TextInputType.number,
+                              textDirection: TextDirection.rtl,
+                              controller: dateController,
+                              decoration: const InputDecoration(
+                                  border: OutlineInputBorder())),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        
+                        Text('تاريخ الحلقة'),
+                      ],
                     ),
-                    Text('تاريخ الحلقة'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                        style: const TextStyle(height: 0.5),
-                        keyboardType: TextInputType.number,
-                        textDirection: TextDirection.rtl,
-                        controller: dateController,
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder())),
                     SizedBox(
                       height: 10,
                     ),
