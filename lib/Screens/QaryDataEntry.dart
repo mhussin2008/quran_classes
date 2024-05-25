@@ -57,8 +57,10 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Center(child: Text('  حلقة  ${widget.testName}')),
-          backgroundColor: Colors.cyan,
+          centerTitle: true,
+          titleSpacing: 10.0,
+          title: Text('  حلقة  ${widget.testName}'),
+          backgroundColor: Colors.blueAccent,
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -112,7 +114,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   Text('عمر الطالب'),
                 ],
               ),
-
+SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
