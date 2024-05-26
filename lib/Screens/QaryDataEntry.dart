@@ -189,6 +189,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   OutlinedButton(
                       onPressed: () async {
                         if (dataGridController.selectedRow != null) {
+
                           print(dataGridController.selectedRow
                               ?.getCells()
                               .first

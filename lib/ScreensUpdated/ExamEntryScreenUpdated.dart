@@ -15,7 +15,7 @@ import 'DialogScreen.dart';
 //import 'QaryDataEntry.dart';
 
 class ExamEntryScreenUpdated extends StatefulWidget {
-  ExamEntryScreenUpdated({Key? key}) : super(key: key);
+  const ExamEntryScreenUpdated({Key? key}) : super(key: key);
 
   @override
   State<ExamEntryScreenUpdated> createState() => _ExamEntryScreenUpdatedState();
@@ -52,13 +52,14 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
 
-        body: Padding(
-          padding: const EdgeInsets.all(18.0),
+        body: SafeArea(
+           minimum: const EdgeInsets.all(20.0),
           child: Column(
+
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-                Text('صفحة إدخال بيانات الحلقات',style: TextStyle(fontSize: 20)),
-              SizedBox(
+                const Text('صفحة إدخال بيانات الحلقات',style: TextStyle(fontSize: 20)),
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -73,18 +74,18 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                         decoration: const InputDecoration(
                             border: OutlineInputBorder())),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
 
 
 
-                  Text('اسم الحلقة'),
+                  const Text('اسم الحلقة'),
                 ],
               ),
 
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
@@ -100,14 +101,14 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                         decoration: const InputDecoration(
                             border: OutlineInputBorder())),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
 
-                  Text('تاريخ الحلقة'),
+                  const Text('تاريخ الحلقة'),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -164,12 +165,12 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                               fontSize: 16.0);
                         }
                       },
-                      child: Text('حفظ البيانات')),
+                      child: const Text('حفظ البيانات')),
                   OutlinedButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text('عودة الى الشاشة الرئيسية')),
+                      child: const Text('عودة الى الشاشة الرئيسية')),
                 ],
               ),
               Row(
@@ -178,6 +179,13 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                   OutlinedButton(
                       onPressed: () async {
                         if (dataGridController.selectedRow != null) {
+                      String result = await showDialog(
+                         context: context,
+                        builder: (BuildContext context) =>
+                           const DialogScreen());
+
+                            print(result);
+                        if (result == 'OK') {
                           print(dataGridController.selectedRow
                               ?.getCells()
                               .first
@@ -198,8 +206,8 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                           await DelSrowFromDb(qname);
                         }
                         //Navigator.pop(context);
-                      },
-                      child: Text('مسح بيانات \n الحلقة')),
+                      }},
+                      child: const Text('مسح بيانات \n الحلقة')),
                   OutlinedButton(
                     onPressed: () {
                       String Selected = '';
@@ -223,7 +231,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                       }
                       //Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'إدخال بيانات\n الطلبة',
                       textDirection: TextDirection.rtl,
                     ),
@@ -249,10 +257,10 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                           });
                         }
                       },
-                      child: Text('مسح الجدول \n بالكامل')),
+                      child: const Text('مسح الجدول \n بالكامل')),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Expanded(
                 child: SfDataGrid(
                   allowEditing: true,
@@ -269,18 +277,18 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                         columnName: 'name',
                         label: Container(
                             color: Colors.cyanAccent,
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             alignment: Alignment.centerRight,
-                            child: Text(
+                            child: const Text(
                               'اسم الحلقة',
                             ))),
                     GridColumn(
                         columnName: 'age',
                         label: Container(
                             color: Colors.cyanAccent,
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             alignment: Alignment.centerRight,
-                            child: Text('تاريخ الحلقة ')))
+                            child: const Text('تاريخ الحلقة ')))
                   ].reversed.toList(),
                 ),
               ),
