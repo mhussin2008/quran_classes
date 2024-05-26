@@ -9,7 +9,7 @@ class QaryDataSource extends DataGridSource {
       DataGridCell<String>(
           columnName: 'name', value: e.qaryName
       ),
-      DataGridCell<int>(
+      DataGridCell<String>(
           columnName: 'age', value: e.qaryAge),
       // DataGridCell<double>(
       //     columnName: 'degree', value: e.degree),

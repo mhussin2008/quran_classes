@@ -114,7 +114,9 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   Text('عمر الطالب'),
                 ],
               ),
-SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -133,10 +135,10 @@ SizedBox(height: 10,),
                           setState(() {
                             QaryList.add(QaryData.fromFields(
                                 nameController.text,
-                                int.parse(ageController.text),
-                                100,
+                                ageController.text,
+
                                 widget.testName,
-                                getQuestNum(theSelected[0])));
+                                ));
                           });
                           String retVal = await CheckDbase();
                           if (retVal == 'Ok') {
@@ -235,7 +237,7 @@ SizedBox(height: 10,),
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text('عودة الى الشاشة الرئيسية')),
+                      child: Text('عودة الى الشاشة\n الرئيسية')),
                 ],
               ),
               SizedBox(
@@ -326,9 +328,9 @@ SizedBox(height: 10,),
     var dbFilePath = '$databasesPath/qary_dbase.db';
     late Database db;
     db = await openDatabase(dbFilePath);
-    int age = int.parse(ageController.text);
+    String age = ageController.text;
     String line =
-        ''' '${nameController.text}', $age , 100, '${widget.testName}', ${getQuestNum(theSelected[0])}  ''';
+        ''' '${nameController.text}', '${age}' , 100, '${widget.testName}', ${getQuestNum(theSelected[0])}  ''';
     String insertString =
         '''INSERT INTO datatable ( qaryname, qaryage, degree, testname, questions) VALUES ( ${line} )''';
     print(insertString);
@@ -353,7 +355,7 @@ SizedBox(height: 10,),
             //QaryList.add(QaryData.fromJson(e));
             //int qn=getQuestNum(theSelected[0]);
             QaryList.add(QaryData.fromFields(e['qaryname'], e['qaryage'],
-                e['degree'], e['testname'], e['questions']));
+                 e['testname']));
           }
           ;
         });

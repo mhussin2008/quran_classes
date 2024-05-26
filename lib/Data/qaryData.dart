@@ -10,14 +10,14 @@ String qaryDataToJson(List<QaryData> data) => json.encode(List<dynamic>.from(dat
 
 class QaryData {
   final String qaryName;
-  final int qaryAge;
+  final String qaryAge;
   //final double degree;
   final String testName;
   //final int questions;
   QaryData(this.qaryName, this.qaryAge, this.testName);
 
   factory QaryData.fromJson(Map<String, dynamic> json) => QaryData(json['qaryName'],json['qaryAge'],json['testName']);
-  factory QaryData.fromFields(String name,int age,double deg,String tname,int quest)=>QaryData(name, age,tname);
+  factory QaryData.fromFields(String name,String age,String tname)=>QaryData(name, age,tname);
 
   Map<String, dynamic> toJson() => {
   };
