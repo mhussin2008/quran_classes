@@ -306,13 +306,11 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
       print('no such table');
       try {
         await db.execute('''
-        create table datatable (
+        CREATE TABLE datatable (
         qaryname TEXT NOT NULL ,
-        qaryage INTEGER DEFAULT 0 ,
-        degree REAL DEFAULT 100.0,
-        testname TEXT NOT NULL,
-        questions INTEGER DEFAULT 4
-       )''');
+        qaryage TEXT ,
+        testname TEXT NOT NULL
+        )''');
       } catch (err) {
         if (err.toString().contains('DatabaseException') == true) {
           print(err.toString());
@@ -331,9 +329,9 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
     db = await openDatabase(dbFilePath);
     String age = ageController.text;
     String line =
-        ''' '${nameController.text}', '${age}' , 100, '${widget.testName}', ${getQuestNum(theSelected[0])}  ''';
+        ''' '${nameController.text}', '${age}' ,  '${widget.testName}' ''';
     String insertString =
-        '''INSERT INTO datatable ( qaryname, qaryage, degree, testname, questions) VALUES ( ${line} )''';
+        '''INSERT INTO datatable ( qaryname, qaryage,  testname ) VALUES ( ${line} )''';
     print(insertString);
     await db.execute(insertString);
   }
@@ -355,6 +353,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
           {
             //QaryList.add(QaryData.fromJson(e));
             //int qn=getQuestNum(theSelected[0]);
+            print(e['qaryage'].runtimeType);
             QaryList.add(QaryData.fromFields(e['qaryname'], e['qaryage'],
                  e['testname']));
           }

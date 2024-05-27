@@ -13,8 +13,8 @@ import '../Screens/DialogScreen.dart';
 
 //import 'DialogScreen.dart';
 
-class startUpScreen extends StatelessWidget {
-  const startUpScreen({Key? key}) : super(key: key);
+class startUpScreenUpdated extends StatelessWidget {
+  const startUpScreenUpdated({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
