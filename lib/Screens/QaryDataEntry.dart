@@ -189,7 +189,13 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   OutlinedButton(
                       onPressed: () async {
                         if (dataGridController.selectedRow != null) {
+                          String result = await showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                              const DialogScreen());
 
+                          print(result);
+                          if(result=='OK'){
                           print(dataGridController.selectedRow
                               ?.getCells()
                               .first
@@ -210,7 +216,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           await DelSrowFromDb(qname, widget.testName);
                         }
                         //Navigator.pop(context);
-                      },
+                      }},
                       child: Text('مسح بيانات \n الطالب')),
                   OutlinedButton(
                       onPressed: () async {
