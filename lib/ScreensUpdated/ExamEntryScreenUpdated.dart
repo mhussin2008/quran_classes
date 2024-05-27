@@ -51,20 +51,19 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
     TestDataSource dataSource = TestDataSource(testList: TestList);
     return Scaffold(
         resizeToAvoidBottomInset: false,
-
+        appBar: AppBar(
+          centerTitle: true,
+          titleSpacing: 10.0,
+          title: const Text('صفحة إدخال بيانات الحلقات',
+              style: TextStyle(fontSize: 20)),
+        ),
         body: SafeArea(
-           minimum: const EdgeInsets.all(20.0),
+          minimum: const EdgeInsets.all(20.0),
           child: Column(
-
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-                const Text('صفحة إدخال بيانات الحلقات',style: TextStyle(fontSize: 20)),
-              const SizedBox(
-                height: 10,
-              ),
               Row(
                 children: [
-
                   Expanded(
                     child: TextFormField(
                         style: const TextStyle(height: 0.5),
@@ -77,19 +76,12 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                   const SizedBox(
                     width: 10,
                   ),
-
-
-
                   const Text('اسم الحلقة'),
                 ],
               ),
-
-
               const SizedBox(
                 height: 10,
               ),
-
-
               Row(
                 children: [
                   Expanded(
@@ -104,7 +96,6 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                   const SizedBox(
                     width: 10,
                   ),
-
                   const Text('تاريخ الحلقة'),
                 ],
               ),
@@ -118,8 +109,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                       onPressed: () async {
                         List<TestData>? search = [];
                         search = TestList.where((element) =>
-                                element.testName == nameController.text)
-                            .toList();
+                            element.testName == nameController.text).toList();
                         print(search);
                         if (search.length > 0) {
                           return;
@@ -129,8 +119,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                             dateController.text.isNotEmpty) {
                           setState(() {
                             TestList.add(TestData.fromFields(
-                                nameController.text,
-                                dateController.text));
+                                nameController.text, dateController.text));
                           });
                           String retVal = await CheckDbase();
                           if (retVal == 'Ok') {
@@ -179,34 +168,35 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                   OutlinedButton(
                       onPressed: () async {
                         if (dataGridController.selectedRow != null) {
-                      String result = await showDialog(
-                         context: context,
-                        builder: (BuildContext context) =>
-                           const DialogScreen());
+                          String result = await showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const DialogScreen());
 
-                            print(result);
-                        if (result == 'OK') {
-                          print(dataGridController.selectedRow
-                              ?.getCells()
-                              .first
-                              .value);
-                          String qname = dataGridController.selectedRow
-                              ?.getCells()
-                              .first
-                              .value;
+                          print(result);
+                          if (result == 'OK') {
+                            print(dataGridController.selectedRow
+                                ?.getCells()
+                                .first
+                                .value);
+                            String qname = dataGridController.selectedRow
+                                ?.getCells()
+                                .first
+                                .value;
 
-                          setState(() {
-                            TestList.removeWhere((element) =>
-                                element.testName ==
-                                dataGridController.selectedRow
-                                    ?.getCells()
-                                    .first
-                                    .value);
-                          });
-                          await DelSrowFromDb(qname);
+                            setState(() {
+                              TestList.removeWhere((element) =>
+                                  element.testName ==
+                                  dataGridController.selectedRow
+                                      ?.getCells()
+                                      .first
+                                      .value);
+                            });
+                            await DelSrowFromDb(qname);
+                          }
+                          //Navigator.pop(context);
                         }
-                        //Navigator.pop(context);
-                      }},
+                      },
                       child: const Text('مسح بيانات \n الحلقة')),
                   OutlinedButton(
                     onPressed: () {
