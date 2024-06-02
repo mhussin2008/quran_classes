@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:quran_classes/Data/qaryData.dart';
-import 'package:quran_classes/Screens/QaryExamScreen.dart';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 

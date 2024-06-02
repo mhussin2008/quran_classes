@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:quran_classes/Screens/ChallengeEntryScreen.dart';
 import 'package:quran_classes/ScreensUpdated/ExamEntryScreenUpdated.dart';
 
 import 'package:sqflite/sqflite.dart';
