@@ -5,46 +5,48 @@ class DialogScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Directionality(
-
+    return Directionality(
       textDirection: TextDirection.rtl,
       child: AlertDialog(
-            title: const Text('إنتبه',textAlign: TextAlign.center,),
-            content: const Text('سيتم مسح بيانات كل الطلبة',textAlign: TextAlign.center,),
-            actions: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    //color: Colors.red,
-                    decoration: BoxDecoration(
-                        color: Colors.cyan,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all()
-
-                    ),
-                  child:TextButton(
+        title: const Text(
+          'إنتبه',
+          textAlign: TextAlign.center,
+        ),
+        content: const Text(
+          'سيتم مسح بيانات كل الطلبة',
+          textAlign: TextAlign.center,
+        ),
+        actions: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                      color: Colors.cyan,
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      border: Border.all()),
+                  child: TextButton(
                     onPressed: () => Navigator.pop(context, 'Cancel'),
-                    child: const Text('تراجع',),
+                    child: const Text(
+                      'تراجع',
+                    ),
                   )),
-                  Container(
-                    //color: Colors.red,
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      border: Border.all()
-
-                    ),
-                    child: TextButton(
-                      onPressed: () => Navigator.pop(context, 'OK'),
-                      child: const Text('مسح'),
-                    ),
-                  ),
-                ],
+              Container(
+                //color: Colors.red,
+                decoration: BoxDecoration(
+                    color: Colors.deepOrangeAccent,
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    border: Border.all()),
+                child: TextButton(
+                  onPressed: () => Navigator.pop(context, 'OK'),
+                  child: const Text('مسح'),
+                ),
               ),
             ],
           ),
+        ],
+      ),
     );
-
   }
 }

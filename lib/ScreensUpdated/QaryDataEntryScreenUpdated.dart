@@ -47,11 +47,8 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
 
   @override
   Widget build(BuildContext context) {
-    //var chkbox_value='4 أسئلة';
-
     DataGridController dataGridController = DataGridController();
     QaryDataSource dataSource = QaryDataSource(qaryList: QaryList);
-    //dataGridController.addListener((){listnerFunction();});
     const sb = SizedBox(
       width: 10,
     );
@@ -135,11 +132,10 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                             ageController.text.isNotEmpty) {
                           setState(() {
                             QaryList.add(QaryData.fromFields(
-                                nameController.text,
-                                ageController.text,
-
-                                widget.testName,
-                                ));
+                              nameController.text,
+                              ageController.text,
+                              widget.testName,
+                            ));
                           });
                           String retVal = await CheckDbase();
                           if (retVal == 'Ok') {
@@ -160,9 +156,6 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           print(QaryList.toString());
                           print(QaryList.length.toDouble());
                           dataGridController.refreshRow(QaryList.length);
-                          //dataGridController.scrollToRow(QaryList.length.toDouble());
-
-                          // Navigator.pop(context);
                         } else {
                           Fluttertoast.showToast(
                               msg: "بيانات الطالب غير مكتملة",
@@ -198,31 +191,32 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           String result = await showDialog(
                               context: context,
                               builder: (BuildContext context) =>
-                              const DialogScreen());
+                                  const DialogScreen());
 
                           print(result);
-                          if(result=='OK'){
-                          print(dataGridController.selectedRow
-                              ?.getCells()
-                              .first
-                              .value);
-                          String qname = dataGridController.selectedRow
-                              ?.getCells()
-                              .first
-                              .value;
+                          if (result == 'OK') {
+                            print(dataGridController.selectedRow
+                                ?.getCells()
+                                .first
+                                .value);
+                            String qname = dataGridController.selectedRow
+                                ?.getCells()
+                                .first
+                                .value;
 
-                          setState(() {
-                            QaryList.removeWhere((element) =>
-                                element.qaryName ==
-                                dataGridController.selectedRow
-                                    ?.getCells()
-                                    .first
-                                    .value);
-                          });
-                          await DelSrowFromDb(qname, widget.testName);
+                            setState(() {
+                              QaryList.removeWhere((element) =>
+                                  element.qaryName ==
+                                  dataGridController.selectedRow
+                                      ?.getCells()
+                                      .first
+                                      .value);
+                            });
+                            await DelSrowFromDb(qname, widget.testName);
+                          }
+                          //Navigator.pop(context);
                         }
-                        //Navigator.pop(context);
-                      }},
+                      },
                       child: const Text('مسح بيانات \n الطالب')),
                   OutlinedButton(
                       onPressed: () async {
@@ -246,7 +240,6 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         }
                       },
                       child: const Text('مسح الجدول \n بالكامل')),
-
                 ],
               ),
               const SizedBox(
@@ -285,9 +278,6 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   ].reversed.toList(),
                 ),
               ),
-              // SizedBox(
-              //   height: 10,
-              // ),
             ],
           ),
         ));
@@ -362,8 +352,8 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
             //QaryList.add(QaryData.fromJson(e));
             //int qn=getQuestNum(theSelected[0]);
             print(e['qaryage'].runtimeType);
-            QaryList.add(QaryData.fromFields(e['qaryname'], e['qaryage'],
-                 e['testname']));
+            QaryList.add(QaryData.fromFields(
+                e['qaryname'], e['qaryage'], e['testname']));
           }
           ;
         });

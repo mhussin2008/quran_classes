@@ -1,9 +1,5 @@
-//import 'dart:js_interop';
-
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-//import 'package:quran_test/Data/qaryData.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
@@ -12,7 +8,6 @@ import '../Data/TestDataSource.dart';
 import '../Data/testData.dart';
 import 'QaryDataEntryScreenUpdated.dart';
 import 'DialogScreen.dart';
-
 
 class ExamEntryScreenUpdated extends StatefulWidget {
   const ExamEntryScreenUpdated({Key? key}) : super(key: key);
