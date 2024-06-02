@@ -7,7 +7,8 @@ import 'package:quran_classes/ScreensUpdated/ExamEntryScreenUpdated.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../ScreensUpdated/DegreeTableScreenUpdated.dart';
-import '../Screens/DialogScreen.dart';
+import 'DialogScreen.dart';
+
 
 
 

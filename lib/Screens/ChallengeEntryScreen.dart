@@ -10,7 +10,8 @@ import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 import '../Data/QaryDataSource.dart';
 import '../Data/TestDataSource.dart';
 import '../Data/testData.dart';
-import 'DialogScreen.dart';
+
+import '../ScreensUpdated/DialogScreen.dart';
 import '../ScreensUpdated/QaryDataEntryScreenUpdated.dart';
 
 class challengeEntryScreen extends StatefulWidget {

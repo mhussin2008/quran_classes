@@ -10,7 +10,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '../Data/QaryDataSource.dart';
-import '../Screens/DialogScreen.dart';
+
+import 'DialogScreen.dart';
 
 class qaryDataEntry extends StatefulWidget {
   final String testName;
@@ -73,7 +74,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -85,18 +86,18 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         decoration: const InputDecoration(
                             border: OutlineInputBorder())),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
-                  Text('اسم الطالب'),
+                  const Text('اسم الطالب'),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -108,13 +109,13 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         decoration: const InputDecoration(
                             border: OutlineInputBorder())),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
-                  Text('عمر الطالب'),
+                  const Text('عمر الطالب'),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -173,18 +174,18 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                               fontSize: 16.0);
                         }
                       },
-                      child: Text('حفظ البيانات')),
-                  SizedBox(
+                      child: const Text('حفظ البيانات')),
+                  const SizedBox(
                     width: 20,
                   ),
                   OutlinedButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text('عودة الى الشاشة\n الرئيسية')),
+                      child: const Text('عودة الى الشاشة\n الرئيسية')),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               // Container(width: 20,color: Colors.green,),
@@ -222,7 +223,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         }
                         //Navigator.pop(context);
                       }},
-                      child: Text('مسح بيانات \n الطالب')),
+                      child: const Text('مسح بيانات \n الطالب')),
                   OutlinedButton(
                       onPressed: () async {
                         String result = await showDialog(
@@ -244,11 +245,11 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           });
                         }
                       },
-                      child: Text('مسح الجدول \n بالكامل')),
+                      child: const Text('مسح الجدول \n بالكامل')),
 
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -269,18 +270,18 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         columnName: 'name',
                         label: Container(
                             color: Colors.cyanAccent,
-                            padding: EdgeInsets.all(4.0),
+                            padding: const EdgeInsets.all(4.0),
                             alignment: Alignment.centerRight,
-                            child: Text(
+                            child: const Text(
                               'اسم الطالب',
                             ))),
                     GridColumn(
                         columnName: 'age',
                         label: Container(
                             color: Colors.cyanAccent,
-                            padding: EdgeInsets.all(4.0),
+                            padding: const EdgeInsets.all(4.0),
                             alignment: Alignment.centerRight,
-                            child: Text('عمر الطالب  '))),
+                            child: const Text('عمر الطالب  '))),
                   ].reversed.toList(),
                 ),
               ),
