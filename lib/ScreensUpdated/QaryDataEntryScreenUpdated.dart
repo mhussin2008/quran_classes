@@ -167,7 +167,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                               fontSize: 16.0);
                         }
                       },
-                      child: const Text('حفظ البيانات')),
+                      child: const Text('حفظ البيانات',textAlign: TextAlign.center,)),
                   const SizedBox(
                     width: 20,
                   ),
@@ -175,7 +175,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: const Text('عودة الى الشاشة\n الرئيسية')),
+                      child: const Text('عودة الى الشاشة\n الرئيسية',textAlign: TextAlign.center,)),
                 ],
               ),
               const SizedBox(
@@ -217,7 +217,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           //Navigator.pop(context);
                         }
                       },
-                      child: const Text('مسح بيانات \n الطالب')),
+                      child: const Text('مسح بيانات \n الطالب',textAlign: TextAlign.center,)),
                   OutlinedButton(
                       onPressed: () async {
                         String result = await showDialog(
@@ -239,7 +239,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                           });
                         }
                       },
-                      child: const Text('مسح الجدول \n بالكامل')),
+                      child: const Text('مسح الجدول \n بالكامل',textAlign: TextAlign.center,)),
                 ],
               ),
               const SizedBox(

@@ -21,6 +21,7 @@ class DialogScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
+                height: 40,
                   //color: Colors.red,
                   decoration: BoxDecoration(
                       color: Colors.cyan,
@@ -34,6 +35,7 @@ class DialogScreen extends StatelessWidget {
                   )),
               Container(
                 //color: Colors.red,
+                height: 40,
                 decoration: BoxDecoration(
                     color: Colors.deepOrangeAccent,
                     borderRadius: const BorderRadius.all(Radius.circular(20)),

@@ -17,7 +17,7 @@ class ExamEntryScreenUpdated extends StatefulWidget {
 }
 
 class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
-  //QaryDataSource dataSource=QaryDataSource(qaryList: QaryList);
+
   TextEditingController nameController = TextEditingController();
   TextEditingController dateController = TextEditingController();
 
@@ -149,12 +149,12 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                               fontSize: 16.0);
                         }
                       },
-                      child: const Text('حفظ البيانات')),
+                      child: const Text('حفظ البيانات',textAlign: TextAlign.center,)),
                   OutlinedButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: const Text('عودة الى الشاشة الرئيسية')),
+                      child: const Text('عودة الى الشاشة الرئيسية',textAlign: TextAlign.center,)),
                 ],
               ),
               Row(
@@ -192,7 +192,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                           //Navigator.pop(context);
                         }
                       },
-                      child: const Text('مسح بيانات \n الحلقة')),
+                      child: const Text('مسح بيانات \n الحلقة',textAlign: TextAlign.center,)),
                   SizedBox(
                     width: 100,
                     child: OutlinedButton(
@@ -219,7 +219,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                         //Navigator.pop(context);
                       },
                       child: const Text(
-                        'إدخال بيانات\n الطلبة',
+                        'إدخال بيانات\n الطلبة',textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                       ),
                     ),
@@ -247,7 +247,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                             });
                           }
                         },
-                        child: const Text('مسح الجدول \n بالكامل')),
+                        child: const Text('مسح الجدول \n بالكامل',textAlign: TextAlign.center,)),
                   ),
                 ],
               ),
