@@ -10,7 +10,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '../Data/QaryDataSource.dart';
-import 'DialogScreen.dart';
+import '../Screens/DialogScreen.dart';
 
 class qaryDataEntry extends StatefulWidget {
   final String testName;
@@ -177,6 +177,11 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                   SizedBox(
                     width: 20,
                   ),
+                  OutlinedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('عودة الى الشاشة\n الرئيسية')),
                 ],
               ),
               SizedBox(
@@ -240,11 +245,7 @@ class _qaryDataEntryState extends State<qaryDataEntry> {
                         }
                       },
                       child: Text('مسح الجدول \n بالكامل')),
-                  OutlinedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('عودة الى الشاشة\n الرئيسية')),
+
                 ],
               ),
               SizedBox(

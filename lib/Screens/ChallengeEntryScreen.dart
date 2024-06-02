@@ -11,7 +11,7 @@ import '../Data/QaryDataSource.dart';
 import '../Data/TestDataSource.dart';
 import '../Data/testData.dart';
 import 'DialogScreen.dart';
-import 'QaryDataEntry.dart';
+import '../ScreensUpdated/QaryDataEntryScreenUpdated.dart';
 
 class challengeEntryScreen extends StatefulWidget {
   challengeEntryScreen({Key? key}) : super(key: key);

@@ -10,9 +10,9 @@ import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '../Data/TestDataSource.dart';
 import '../Data/testData.dart';
-import '../Screens/QaryDataEntry.dart';
+import 'QaryDataEntryScreenUpdated.dart';
 import 'DialogScreen.dart';
-//import 'QaryDataEntry.dart';
+
 
 class ExamEntryScreenUpdated extends StatefulWidget {
   const ExamEntryScreenUpdated({Key? key}) : super(key: key);
@@ -163,7 +163,7 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   OutlinedButton(
                       onPressed: () async {
@@ -198,56 +198,62 @@ class _ExamEntryScreenUpdatedState extends State<ExamEntryScreenUpdated> {
                         }
                       },
                       child: const Text('مسح بيانات \n الحلقة')),
-                  OutlinedButton(
-                    onPressed: () {
-                      String Selected = '';
-                      if (dataGridController.selectedRow != null) {
-                        Selected = dataGridController.selectedRow!
-                            .getCells()
-                            .first
-                            .value
-                            .toString();
+                  SizedBox(
+                    width: 100,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        String Selected = '';
+                        if (dataGridController.selectedRow != null) {
+                          Selected = dataGridController.selectedRow!
+                              .getCells()
+                              .first
+                              .value
+                              .toString();
 
-                        print(dataGridController.selectedRow
-                            ?.getCells()
-                            .first
-                            .value);
-                        // postponed after editions
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    qaryDataEntry(testName: Selected)));
-                      }
-                      //Navigator.pop(context);
-                    },
-                    child: const Text(
-                      'إدخال بيانات\n الطلبة',
-                      textDirection: TextDirection.rtl,
+                          print(dataGridController.selectedRow
+                              ?.getCells()
+                              .first
+                              .value);
+                          // postponed after editions
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      qaryDataEntry(testName: Selected)));
+                        }
+                        //Navigator.pop(context);
+                      },
+                      child: const Text(
+                        'إدخال بيانات\n الطلبة',
+                        textDirection: TextDirection.rtl,
+                      ),
                     ),
                   ),
-                  OutlinedButton(
-                      onPressed: () async {
-                        String result = await showDialog(
-                            context: context,
-                            builder: (BuildContext context) =>
-                                const DialogScreen());
+                  SizedBox(
+                    width: 100,
+                    child: OutlinedButton(
+                        onPressed: () async {
+                          String result = await showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const DialogScreen());
 
-                        print(result);
-                        if (result == 'OK') {
-                          print('deleting');
-                          setState(() {
-                            TestList.clear();
-                          });
-                          CheckDbase().then((value) async {
-                            if (value == 'Ok') {
-                              await ClearDb();
-                            }
-                            ;
-                          });
-                        }
-                      },
-                      child: const Text('مسح الجدول \n بالكامل')),
+                          print(result);
+                          if (result == 'OK') {
+                            print('deleting');
+                            setState(() {
+                              TestList.clear();
+                            });
+                            CheckDbase().then((value) async {
+                              if (value == 'Ok') {
+                                await ClearDb();
+                              }
+                              ;
+                            });
+                          }
+                        },
+                        child: const Text('مسح الجدول \n بالكامل')),
+                  ),
                 ],
               ),
               const SizedBox(height: 10),
